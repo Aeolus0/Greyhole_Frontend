@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stats / Logs</title>
+        <link rel="stylesheet" href="../static/blanket.css">
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div>
+            <h1>Hello {{user}}!</h1>
+        </div>
+        <div id=nav>
+            <a href="Main.html">Home</a>
+            <a href="Main.html">Disks</a>
+            <a href="Main.html">Status</a>
+            <a href="/stats_and_logs">Stats / Logs</a>
+        </div>
+        <h2>This is the web frontend for Greyhole</h2>
+        <div id=tailing>
+            <p id=tail_content>
+                {{logfile}}
+            </p>
+            <button id=reload>Reload</button>
+        </div>
+    </body>
+</html>
