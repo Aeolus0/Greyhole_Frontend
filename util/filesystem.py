@@ -14,3 +14,15 @@ def get_storage_disks(conf_path):
             uncommented_lines[elem] = uncommented_lines[elem][5:uncommented_lines[elem].index(',')]
     return uncommented_lines
 
+def avail_space(conf_path):
+    import commands
+    output = commands.getoutput('df -h')
+    output = output.split('\n')
+    for elem in output:
+        elem = elem[::-1]
+        val = elem.index(' ')
+        elem = elem[::-1]
+        val = len(elem) - val
+        final_drive_lines = []
+        if elem[val:] in get_storage_disks(conf_path):
+            final_drive_lines.append(elem)

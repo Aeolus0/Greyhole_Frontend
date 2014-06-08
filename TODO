@@ -1,7 +1,7 @@
-TODO:
 Disk visualization
 Flask-SocketIO
 Disk functions ( add remove etc. )
 Status page
 SMART data
 Ask GB
+Fix html to use header and footer
