@@ -14,15 +14,17 @@ def get_storage_disks(conf_path):
             uncommented_lines[elem] = uncommented_lines[elem][5:uncommented_lines[elem].index(',')]
     return uncommented_lines
 
-def avail_space(conf_path):
+def avail_space():
     import commands
-    output = commands.getoutput('df -h')
+    output = commands.getoutput('greyhole --stats | grep :')
     output = output.split('\n')
+    for iter in range(0, len(output)):
+        output[iter] = output[iter][2:]
+    return_dict = {}
     for elem in output:
-        elem = elem[::-1]
-        val = elem.index(' ')
-        elem = elem[::-1]
-        val = len(elem) - val
-        final_drive_lines = []
-        if elem[val:] in get_storage_disks(conf_path):
-            final_drive_lines.append(elem)
+        sizes = elem[elem.index(':') + 1:]
+        sizes = sizes.split('G')
+        for iter in range(0,len(sizes)):
+            sizes[iter] = filter(lambda x: x.isdigit(), sizes[iter])
+        return_dict[elem[:elem.index(':')]] = sizes
+    return return_dict
