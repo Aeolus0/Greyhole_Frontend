@@ -28,3 +28,15 @@ def avail_space():
             sizes[iter] = filter(lambda x: x.isdigit(), sizes[iter])
         return_dict[elem[:elem.index(':')]] = sizes
     return return_dict
+
+def raw_usage():
+    import commands
+    return commands.getoutput('greyhole --stats')
+
+def mount(sudo_pw):
+    import subprocess
+    proc = subprocess.Popen(['sudo', 'mount', '-a'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+    proc.stdin.write(sudo_pw + '\n')
+    proc.stdin.close()
+    out = proc.stdout()
+    return out
