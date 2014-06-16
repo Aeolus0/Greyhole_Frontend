@@ -17,11 +17,40 @@
             <a href="/stats_and_logs">Stats / Logs</a>
         </div>
         <h2>This is the web frontend for Greyhole</h2>
-        <div id=tailing>
-            <p id=tail_content>
-                {{logfile}}
-            </p>
-            <button id=reload>Reload</button>
+        <div id=left>
+            <div id=tailing>
+                <div id=cmd_content>
+                    <p id=logs_resp>
+                        //to be filled by Flask-SocketIO
+                    </p>
+                </div>
+                <button id=reload>Reload</button>
+            </div>
+        </div>
+        <div id=right>
+            <div id=queue>
+                <div id=cmd_content>
+                    <p id=work_queue_resp>
+                        //to be filled by Flask-SocketIO
+                    </p>
+                </div>
+            </div>
+            <div id=stats>
+                <div id=iostat>
+                    <div id=cmd_content>
+                        <p id=iostat_resp>
+                            //to be filled by Flask-SocketIO
+                        </p>
+                    </div>    
+                </div>
+                <div id=usage>
+                    <div id=cmd_content>
+                        <p id=raw_usage_resp>
+                            //to be filled by Flask-SocketIO
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
