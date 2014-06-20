@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/stats_and_logs');
     socket.on('logs_resp', function(msg) {
