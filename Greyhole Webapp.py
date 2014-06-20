@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask.ext.socketio import SocketIO, emit
 from util import *
 #TODO sqlite3 db connection to store sudo pw, first time run, log locations etc
